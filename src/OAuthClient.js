@@ -185,7 +185,7 @@ OAuthClient.prototype.createToken = function createToken(uri) {
       const { response, ...authResponse } = res.json ? res : null;
       const json = (authResponse && authResponse.json) || res;
       this.token.setToken(json);
-      this.log('info', 'Create Token response is : ', JSON.stringify(authResponse, null, 2));
+      this.log('info', 'Create Token response is : ', JSON.stringify(authResponse.json, null, 2));
       return authResponse;
     })
     .catch((e) => {
@@ -226,7 +226,7 @@ OAuthClient.prototype.refresh = function refresh() {
       const { request, ...authResponse } = res.json ? res : null;
       const json = (authResponse && authResponse.getJson()) || res;
       this.token.setToken(json);
-      this.log('info', 'Refresh Token () response is : ', JSON.stringify(authResponse, null, 2));
+      this.log('info', 'Refresh Token () response is : ', JSON.stringify(authResponse.json, null, 2));
       return authResponse;
     })
     .catch((e) => {
